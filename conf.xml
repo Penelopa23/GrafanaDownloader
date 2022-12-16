@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document>
+		<start>12.12.2022 23:20:00</start>
+		<duration>00:20:00</duration>
+	<url>
+		<domen>localhost:3000</domen>
+		<dashboardId>render/d-solo/E3O2qWc4k/new-dashboard</dashboardId>
+		<panelId>2</panelId>
+		<orgId>1</orgId>
+		<dataSource></dataSource>
+		<measurement></measurement>
+		<width>1000</width>
+		<height>500</height>
+		<tz>Europe%2FMoscow</tz>
+		<apiKey>eyJrIjoiVFp0dUlvclpjRWNlTTBUTDA1NnZ4WEY1UjJ2cW1XMVMiLCJuIjoidHQiLCJpZCI6MX0=</apiKey>
+	</url>
+	<url>
+		<domen>localhost:3000</domen>
+		<dashboardId>render/d-solo/eo0alQKVz/test</dashboardId>
+		<panelId>2</panelId>
+		<orgId>1</orgId>
+		<dataSource></dataSource>
+		<measurement></measurement>
+		<width>1000</width>
+		<height>500</height>
+		<tz>Europe%2FMoscow</tz>
+		<apiKey>eyJrIjoiVFp0dUlvclpjRWNlTTBUTDA1NnZ4WEY1UjJ2cW1XMVMiLCJuIjoidHQiLCJpZCI6MX0=</apiKey>
+	</url>
+</document>
