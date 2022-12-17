@@ -53,7 +53,7 @@ public final class GrafanaCreator {
                         getTagText(e, "orgId"), getTagText(e, "dataSource"),
                         getTagText(e, "measurement"), getTagText(e, "width"),
                         getTagText(e, "height"), getTagText(e, "tz"),
-                        getTagText(e, "apiKey"));
+                        getTagText(e, "apiKey"), getTagText(e, "name"));
                 urlList.add(parGrafana);
             }
         }
@@ -88,7 +88,7 @@ public final class GrafanaCreator {
             log.info("URL request sent in Grafana: " + url + "\n");
 
             try {
-                downloadFile(url.toString(), p.apiKey());
+                downloadFile(url.toString(), p.apiKey(), p.name());
             } catch (IOException var7) {
                 log.warning("Critical error when screenshots uploading!\n" + var7 + "\n");
             }
@@ -124,7 +124,7 @@ public final class GrafanaCreator {
         }
     }
 
-    private static void downloadFile(String fileURL, String apiKey) throws IOException {
+    private static void downloadFile(String fileURL, String apiKey, String filename) throws IOException {
         HttpURLConnection httpConn = (HttpURLConnection) (new URL(fileURL)).openConnection();
         httpConn.setDoOutput(true);
         httpConn.setInstanceFollowRedirects(false);
@@ -135,16 +135,6 @@ public final class GrafanaCreator {
         httpConn.setRequestProperty("Authorization", "Bearer " + apiKey);
         httpConn.setUseCaches(false);
         if (httpConn.getResponseCode() == 200) {
-            String filename = "";
-            String disposition = httpConn.getHeaderField("Content-Disposition");
-            if (disposition != null) {
-                int index = disposition.indexOf("filename=");
-                if (index > 0) {
-                    filename = fileURL.substring(index + 10, disposition.length() - 1);
-                }
-            } else {
-                filename = fileURL.substring(fileURL.lastIndexOf("/") + 1, fileURL.indexOf("?"));
-            }
 
             //TODO Check file size, it must be more than 3176 byte
             InputStream inputStream = httpConn.getInputStream();

@@ -3,6 +3,7 @@
 		<start>12.12.2022 23:20:00</start>
 		<duration>00:20:00</duration>
 	<url>
+		<name>CPU</name>
 		<domen>localhost:3000</domen>
 		<dashboardId>render/d-solo/E3O2qWc4k/new-dashboard</dashboardId>
 		<panelId>2</panelId>
@@ -15,6 +16,7 @@
 		<apiKey>eyJrIjoiVFp0dUlvclpjRWNlTTBUTDA1NnZ4WEY1UjJ2cW1XMVMiLCJuIjoidHQiLCJpZCI6MX0=</apiKey>
 	</url>
 	<url>
+		<name>Heap-memory</name>
 		<domen>localhost:3000</domen>
 		<dashboardId>render/d-solo/eo0alQKVz/test</dashboardId>
 		<panelId>2</panelId>

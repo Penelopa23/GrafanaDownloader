@@ -3,7 +3,7 @@ package org.grafana.downloader;
 import java.util.Objects;
 
 record GrafanaParameters(String domen, String dashboardId, String panelId, String orgId, String dataSource,
-                         String measurement, String width, String height, String tz, String apiKey) {
+                         String measurement, String width, String height, String tz, String apiKey, String name) {
 
     @Override
     public boolean equals(Object o) {
@@ -19,13 +19,14 @@ record GrafanaParameters(String domen, String dashboardId, String panelId, Strin
                 && Objects.equals(width, that.width)
                 && Objects.equals(height, that.height)
                 && Objects.equals(tz, that.tz)
-                && Objects.equals(apiKey, that.apiKey);
+                && Objects.equals(apiKey, that.apiKey)
+                && Objects.equals(name, that.name);
     }
 
     public String toString() {
         return "GrafanaParameters(domen=" + this.domen() + ", dashboardId=" + this.dashboardId() + ", panelId=" +
                 this.panelId() + ", orgId=" + this.orgId() + ", dataSource=" + this.dataSource() +
                 ", measurement=" + this.measurement() + ", width=" + this.width() + ", height=" + this.height()
-                + ", tz=" + this.tz() + ", image=" + ", apiKey=" + this.apiKey() + ")";
+                + ", tz=" + this.tz() + ", image=" + ", apiKey=" + this.apiKey() + ", name=" + this.name() + ")";
     }
 }
