@@ -2,6 +2,7 @@ package org.grafana;
 
 import org.apache.commons.cli.*;
 import org.grafana.downloader.GrafanaCreator;
+import org.grafana.report.ReportCreator;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -50,6 +51,20 @@ public class Application {
                 log.warning("Screenshots downloaded error!\n" + var3+ "\n");
             }
         }
+
+        if (cl.hasOption('r')) {
+            if (!cl.hasOption('g')) {
+                log.warning("Report creating without screenshots\n");
+            }
+            log.info("Report generation in process\n");
+
+            try {
+                ReportCreator.create();
+                log.info("Report generation finished\n");
+            } catch (RuntimeException var3) {
+                log.warning("Report not generated!\n" + var3);
+            }
+        }
     }
 
 
@@ -60,7 +75,9 @@ public class Application {
                 "to results folder.\n Required").build();
         Option grafanaOption = Option.builder("g").longOpt("grafana").hasArg().optionalArg(true).desc(
                 "Indicates the need download screenshots from grafana").build();
-        options.addOption(configOption).addOption(folderOption).addOption(grafanaOption);
+        Option reportOption = Option.builder("r").longOpt("report").hasArg().optionalArg(true).desc(
+                "Indicates the need .docx report generation").build();
+        options.addOption(configOption).addOption(folderOption).addOption(grafanaOption).addOption(reportOption);
 
         try {
             cl = (new DefaultParser()).parse(options, args);
